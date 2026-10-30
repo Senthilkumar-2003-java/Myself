@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 140" width="1000" height="280">
+  <defs>
+    <linearGradient id="kumarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5B3DF5" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <!-- Background is pure white if needed, but transparent canvas by default -->
+  <text x="250" y="95" 
+        fill="url(#kumarGradient)" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" 
+        font-size="96" 
+        font-weight="800" 
+        letter-spacing="-0.03em"
+        text-anchor="middle">KUMAR</text>
+</svg>

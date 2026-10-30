@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64" width="320" height="128">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5B3DF5" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded Pill Capsule -->
+  <rect x="4" y="4" width="152" height="56" rx="28" fill="url(#aiGradient)" />
+  <!-- White AI Text -->
+  <text x="80" y="38" 
+        fill="#FFFFFF" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" 
+        font-size="26" 
+        font-weight="800" 
+        letter-spacing="0.05em"
+        text-anchor="middle" 
+        dominant-baseline="central">AI</text>
+</svg>

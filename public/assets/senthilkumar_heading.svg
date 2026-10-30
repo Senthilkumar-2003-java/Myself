@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 140" width="1800" height="280">
+  <defs>
+    <linearGradient id="kumarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5B3DF5" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <text x="50" y="95" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" 
+        font-size="96" 
+        font-weight="800" 
+        letter-spacing="-0.03em">
+    <tspan fill="#0F172A">SENTHIL</tspan><tspan fill="url(#kumarGradient)">KUMAR</tspan>
+  </text>
+</svg>
