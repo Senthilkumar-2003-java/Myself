@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "test": "node --test src/utils/scroll.test.js",
+    "test": "node --test src/utils/scroll.test.js src/utils/whatsapp.test.js",
     "preview": "vite preview"
   },
   "dependencies": {

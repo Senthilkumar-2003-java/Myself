@@ -4,11 +4,11 @@ import {
   Mail, 
   Phone,
   MapPin, 
-  Send,
-  CheckCircle2
+  Send
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import TechIcon from './TechIcon';
+import { buildWhatsAppUrl } from '../utils/whatsapp';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,20 +17,21 @@ export default function Contact() {
     subject: '',
     message: ''
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 4500);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    try {
+      const url = buildWhatsAppUrl(formData, personalInfo.phone);
+      setFormError('');
+      window.location.assign(url);
+    } catch (error) {
+      setFormError(error.message);
+    }
   };
 
   return (
@@ -131,22 +132,15 @@ export default function Contact() {
 
             {/* Direct Message Form */}
             <div className="contact-form-wrap">
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '30px 10px' }}>
-                  <CheckCircle2 size={48} color="var(--primary-violet)" style={{ margin: '0 auto 12px' }} />
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-dark)' }}>
-                    Message Sent Successfully!
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '6px' }}>
-                    Thank you for reaching out. I'll get back to you shortly.
-                  </p>
-                </div>
-              ) : (
                 <form className="contact-form" onSubmit={handleSubmit}>
+                  {formError && <p role="alert" className="contact-form-error">{formError}</p>}
                   <div className="form-row">
                     <input
                       type="text"
                       name="name"
+                      aria-label="Your name"
+                      autoComplete="name"
+                      maxLength={100}
                       placeholder="Your Name *"
                       required
                       value={formData.name}
@@ -156,6 +150,9 @@ export default function Contact() {
                     <input
                       type="email"
                       name="email"
+                      aria-label="Your email"
+                      autoComplete="email"
+                      maxLength={254}
                       placeholder="Your Email *"
                       required
                       value={formData.email}
@@ -167,6 +164,8 @@ export default function Contact() {
                   <input
                     type="text"
                     name="subject"
+                    aria-label="Subject or project inquiry"
+                    maxLength={160}
                     placeholder="Subject / Project Inquiry"
                     value={formData.subject}
                     onChange={handleChange}
@@ -175,6 +174,8 @@ export default function Contact() {
 
                   <textarea
                     name="message"
+                    aria-label="Your message"
+                    maxLength={2000}
                     placeholder="Tell me about your project or opportunity... *"
                     required
                     value={formData.message}
@@ -183,11 +184,11 @@ export default function Contact() {
                   />
 
                   <button type="submit" className="btn-primary-pill" style={{ alignSelf: 'flex-start' }}>
-                    <span>Get In Touch</span>
+                    <span>Continue on WhatsApp</span>
                     <Send size={16} />
                   </button>
+                  <p className="contact-form-note">Opens WhatsApp with your details. Tap Send there to finish.</p>
                 </form>
-              )}
             </div>
 
           </div>

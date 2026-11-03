@@ -27,8 +27,6 @@ export default function usePortfolioMotion(appRef, progressRef) {
       let heroHeight = 1;
       let heroVisible = true;
       const hero = root.querySelector('.hero-section');
-      const portrait = root.querySelector('.hero-portrait-img');
-      const badges = [...root.querySelectorAll('.floating-badge')];
       const animations = new Set();
       const targets = new Set();
       const cleanups = [];
@@ -60,10 +58,8 @@ export default function usePortfolioMotion(appRef, progressRef) {
         }
         if (desktopMotion && heroVisible) {
           const amount = Math.min(y / heroHeight, 1);
-          if (portrait) portrait.style.translate = `0 ${amount * 28}px`;
-          badges.forEach((badge, index) => {
-            badge.style.translate = `0 ${amount * (index % 2 ? -20 : -36)}px`;
-          });
+          // Move only the decorative glow so portrait and labels keep their gap.
+          hero.style.setProperty('--hero-glow-shift', `${amount * 28}px`);
         }
       };
       const schedule = () => {
@@ -182,8 +178,7 @@ export default function usePortfolioMotion(appRef, progressRef) {
         animations.forEach(animation => animation.cancel());
         targets.forEach(target => { delete target.dataset.reveal; });
         cleanups.forEach(cleanup => cleanup());
-        if (portrait) portrait.style.translate = '';
-        badges.forEach(badge => { badge.style.translate = ''; });
+        hero?.style.removeProperty('--hero-glow-shift');
         root.classList.remove('motion-ready');
         setSmoothScroller(null);
         lenis?.destroy();

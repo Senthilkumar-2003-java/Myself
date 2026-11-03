@@ -419,6 +419,15 @@ img {
   font-weight: 900;
 }
 
+.hero-role-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
 .hero-description {
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -526,7 +535,9 @@ img {
 }
 
 .hero-portrait-img {
-  width: 100%;
+  width: min(100%, 380px);
+  max-height: 470px;
+  margin-inline: auto;
   height: auto;
   object-fit: contain;
   display: block;
@@ -621,12 +632,12 @@ img {
 
 /* Handwritten Signature Element */
 .hero-signature-wrap {
-  position: absolute;
-  bottom: -10px;
-  right: 15px;
+  position: static;
+  width: 100%;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   z-index: 6;
 }
 
@@ -647,12 +658,34 @@ img {
 }
 
 .hero-signature-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px 8px;
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   color: var(--text-secondary);
   text-transform: uppercase;
   margin-top: 4px;
+}
+
+.hero-signature-subtitle > span {
+  white-space: nowrap;
+}
+
+.contact-form-note {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.contact-form-error {
+  color: var(--color-accent-hover);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {
@@ -1075,7 +1108,7 @@ img {
   min-height: 142px;
   box-shadow: var(--shadow-sm);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-  cursor: pointer;
+  cursor: default;
   position: relative;
 }
 
@@ -1755,10 +1788,17 @@ img {
   animation: experienceBackdropOpen 180ms ease-in reverse both;
 }
 
-.project-modal { width: min(880px, calc(100% - 32px)); }
-.project-modal .modal-img-wrap { height: auto; aspect-ratio: 16 / 9; }
+.project-modal {
+  width: min(880px, calc(100% - 32px));
+  max-height: calc(100dvh - 24px);
+  overflow: hidden;
+}
+.project-modal .modal-img-wrap {
+  height: min(32dvh, 280px);
+  aspect-ratio: auto;
+}
 .project-modal .modal-img { object-fit: contain; }
-.project-modal .modal-body { padding: 30px; }
+.project-modal .modal-body { padding: 22px 28px; }
 .project-modal .modal-actions { flex-wrap: wrap; }
 
 .experience-modal-body {
@@ -1912,6 +1952,7 @@ section[id] {
   top: -30%;
   background: radial-gradient(circle, rgba(139, 115, 214, 0.09), transparent 68%);
   pointer-events: none;
+  transform: translateY(var(--hero-glow-shift, 0px));
 }
 
 .stat-number {

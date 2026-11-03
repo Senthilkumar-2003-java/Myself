@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { FolderGit2, ArrowUpRight } from 'lucide-react';
+import { FolderGit2 } from 'lucide-react';
 import { projectCategories, projectsData } from '../data/portfolioData';
-import ProjectModal from './ProjectModal';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects = activeCategory === 'All'
     ? projectsData
@@ -52,17 +50,6 @@ export default function Projects() {
             <div 
               key={project.id} 
               className="project-card"
-              onClick={() => setSelectedProject(project)}
-              role="button"
-              tabIndex={0}
-              aria-haspopup="dialog"
-              aria-label={`View ${project.title} project`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setSelectedProject(project);
-                }
-              }}
             >
               {/* Thumbnail */}
               <div className="project-thumb-box">
@@ -84,9 +71,6 @@ export default function Projects() {
                   <h3 className="project-title">{project.title}</h3>
                 </div>
                 <div className="project-subtitle">{project.subtitle}</div>
-                <div className="project-card-footer">
-                  <span className="project-open-icon" aria-hidden="true"><ArrowUpRight size={20} /></span>
-                </div>
               </div>
             </div>
           ))}
@@ -94,13 +78,6 @@ export default function Projects() {
 
       </div>
 
-      {/* Modal */}
-      {selectedProject && (
-        <ProjectModal 
-          project={selectedProject} 
-          onClose={() => setSelectedProject(null)} 
-        />
-      )}
     </section>
   );
 }

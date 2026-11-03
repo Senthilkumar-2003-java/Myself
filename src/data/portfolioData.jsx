@@ -8,12 +8,12 @@ export const personalInfo = {
   email: "senthilson2003@gmail.com",
   phone: "+916385257541",
   phoneDisplay: "+91 63852 57541",
-  targetRole: "Full Stack Developer + AI Engineering",
+  targetRole: "Full Stack Developer + AI Engineer + Cloud Engineer",
   heroDescription: "I build modern web and mobile applications with AI integration. Passionate about creating scalable, real-world solutions using modern technologies.",
   summary: "Full Stack Developer with experience in web application development, backend development, database management, mobile application development, and AI engineering. Skilled in building web applications using React.js, Node.js, Python, Java, Django, Spring Boot, and Laravel. Familiar with Flutter mobile application development, Large Language Model APIs, Retrieval-Augmented Generation, and local AI development using Ollama. Knowledge of payment gateway integration using Razorpay and Cashfree, along with version control, hosting, and application deployment. Interested in developing scalable software solutions and integrating AI capabilities into real-world applications.",
-  resumeUrl: "/Senthilkumar_Resume.pdf",
-  githubUrl: "https://github.com",
-  linkedinUrl: "https://linkedin.com",
+  resumeUrl: "/SENTHILKUMAR S - Full Stack AI Engineer.pdf",
+  githubUrl: "https://github.com/Senthilkumar-2003-java",
+  linkedinUrl: "https://www.linkedin.com/in/senthilkumar280503/",
 };
 
 export const stats = [

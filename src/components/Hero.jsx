@@ -75,8 +75,14 @@ export default function Hero() {
 
             <div className="hero-role">
               <span>Full Stack Developer</span>
-              <span className="hero-role-divider">+</span>
-              <span>AI Engineering</span>
+              <span className="hero-role-item">
+                <span className="hero-role-divider" aria-hidden="true">+</span>
+                <span>AI Engineer</span>
+              </span>
+              <span className="hero-role-item">
+                <span className="hero-role-divider" aria-hidden="true">+</span>
+                <span>Cloud Engineer</span>
+              </span>
             </div>
 
             <p className="hero-description">
@@ -111,7 +117,7 @@ export default function Hero() {
 
               <a 
                 href={personalInfo.resumeUrl} 
-                download="Senthilkumar_Resume.pdf"
+                download="SENTHILKUMAR S - Full Stack AI Engineer.pdf"
                 className="btn-secondary-pill"
               >
                 <Download size={16} />
@@ -160,26 +166,16 @@ export default function Hero() {
               {/* Main Portrait with blue & violet watercolor splash */}
               <img
                 src="/assets/hero_portrait.png"
-                alt="Senthilkumar - Full Stack Developer & AI Engineer"
+                alt="Senthilkumar - Full Stack Developer, AI Engineer and Cloud Engineer"
                 className="hero-portrait-img"
               />
 
-              {/* Handwritten Signature Block */}
+              {/* Professional tagline */}
               <div className="hero-signature-wrap">
-                <img 
-                  src="/assets/signature.png" 
-                  alt="Senthilkumar" 
-                  className="hero-signature-img"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'block';
-                  }}
-                />
-                <div className="hero-signature-text" style={{ display: 'none' }}>
-                  Senthilkumareppa e
-                </div>
                 <div className="hero-signature-subtitle">
-                  DEVELOPER &nbsp;|&nbsp; AI ENTHUSIAST &nbsp;|&nbsp; PROBLEM SOLVER
+                  <span>Developer</span><span aria-hidden="true">|</span>
+                  <span>AI Engineer</span><span aria-hidden="true">|</span>
+                  <span>Problem Solver</span>
                 </div>
               </div>
 
